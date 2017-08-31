@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhiyou.video.mapper.StatementMapper" >
+<!-- List<Integer> selectAvg(); -->
+<select id="selectAvg" resultType="Integer">
+  SELECT
+	AVG(video_play_times)
+FROM
+	video
+GROUP BY
+	course_id
+</select>
+
+</mapper>
