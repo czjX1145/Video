@@ -1,5 +1,7 @@
 package com.zhiyou.video.service.impl;
 
+import java.text.DecimalFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,11 +74,19 @@ public class videoServiceImpl implements videoService {
 	}
 
 	@Override
-	public List<Video> findVideoByExample(Integer id) {
+	public List<Video> findVideoByExample(Integer id) {		
 		VideoExample example = new VideoExample(); 
 		Criteria criteria = example.createCriteria();
 		criteria.andCourseIdEqualTo(id);
-		List<Video> list = vm.selectByExample(example);		
+		List<Video> list = vm.selectByExample(example);	
+		for (Video video : list) {
+			int a = video.getVideoLength();
+			int shi = a/3600;
+			int fen = a%3600/60;
+			int miao = a%3600%60;
+			String string = shi+":"+fen+":"+miao;
+			video.setVideoLengthStr(string);
+		}
 		return list;
 	}
 
@@ -99,10 +109,16 @@ public class videoServiceImpl implements videoService {
 	@Override
 	public List<Video> findVideoById2(Integer courseId) {
         List<Video> list = vm.selectVideo(courseId);
-        System.out.println("service层"+"-------"+list);
+		for (Video video : list) {
+			int a = video.getVideoLength();
+			int shi = a/3600;
+			int fen = a%3600/60;
+			int miao = a%3600%60;
+			String string = shi+":"+fen+":"+miao;
+			video.setVideoLengthStr(string);
+		}        
 		return list;
 	}
-
 }
 
 

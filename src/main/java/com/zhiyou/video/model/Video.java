@@ -12,6 +12,8 @@ public class Video {
     private Integer courseId;
 
     private Integer videoLength;
+    
+    private String videoLengthStr;
 
     private String videoImageUrl;
 
@@ -153,17 +155,22 @@ public class Video {
         this.videoPlayTimes = videoPlayTimes;
     }
 
+	public String getVideoLengthStr() {
+		return videoLengthStr;
+	}
+
+	public void setVideoLengthStr(String videoLengthStr) {
+		this.videoLengthStr = videoLengthStr;
+	}
+
 	@Override
 	public String toString() {
 		return "Video [id=" + id + ", videoTitle=" + videoTitle + ", speakerId=" + speakerId + ", courseId=" + courseId
-				+ ", videoLength=" + videoLength + ", videoImageUrl=" + videoImageUrl + ", videoUrl=" + videoUrl
-				+ ", videoDescr=" + videoDescr + ", insertTime=" + insertTime + ", updateTime=" + updateTime
-				+ ", videoPlayTimes=" + videoPlayTimes + ", speakerName=" + speakerName + ", courseName=" + courseName
-				+ ", page=" + page + "]";
+				+ ", videoLength=" + videoLength + ", videoLengthStr=" + videoLengthStr + ", videoImageUrl="
+				+ videoImageUrl + ", videoUrl=" + videoUrl + ", videoDescr=" + videoDescr + ", insertTime=" + insertTime
+				+ ", updateTime=" + updateTime + ", videoPlayTimes=" + videoPlayTimes + ", speakerName=" + speakerName
+				+ ", courseName=" + courseName + ", page=" + page + "]";
 	}
-
-	
-
 	
     
 }
