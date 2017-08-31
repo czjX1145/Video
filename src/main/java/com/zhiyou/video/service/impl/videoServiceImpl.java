@@ -116,6 +116,7 @@ public class videoServiceImpl implements videoService {
 			int miao = a%3600%60;
 			String string = shi+":"+fen+":"+miao;
 			video.setVideoLengthStr(string);
+			
 		}        
 		return list;
 	}
